@@ -1,0 +1,1 @@
+Simple game that lets you create your own squad of chess pieces and battle it out against other custom teams!

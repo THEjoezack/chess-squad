@@ -1,0 +1,15 @@
+{
+  "name": "chess-teams",
+  "version": "1.0.0",
+  "description": "fun variant of chess that lets you build your own team to compete!",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "keywords": [
+    "chess",
+    "game"
+  ],
+  "author": "Joe Zack",
+  "license": "MIT"
+}
