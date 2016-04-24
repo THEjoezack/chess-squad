@@ -1,5 +1,5 @@
 {
-  "name": "chess-teams",
+  "name": "chess-squad",
   "version": "1.0.0",
   "description": "fun variant of chess that lets you build your own team to compete!",
   "main": "index.js",
@@ -11,5 +11,10 @@
     "game"
   ],
   "author": "Joe Zack",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "gulp-cli": "^1.2.1",
+    "jquery": "^2.2.3"
+  }
 }
