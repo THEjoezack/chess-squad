@@ -9,11 +9,11 @@ Simple game that lets you create your own squad of chess pieces and battle it ou
 * npm start
 
 ### TODO:
-* Hook up chess rules engine
-* Setup testing
-* Setup basic game of chess vs computer
-* Screens for creating squads, choosing opponent
-* Ability to save squads and compete against other people
+* How to decide which move to make?
+* Allow custom board setup
+* Screens for creating squads
+* Ability to save squads
+* Compete against other people
 
 ### Far future
 * Different game modes

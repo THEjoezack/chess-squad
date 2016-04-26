@@ -10,8 +10,8 @@
 
 .table.board td {
     text-align: center;
-    width: 85px;
-    height: 85px;
+    width: 80px;
+    height: 80px;
     border: 1px solid lightgray;
 }
 
@@ -21,10 +21,10 @@
 
 /* Pieces */
 .piece {
-    font-size: 42px;
-    border-radius: 10px;
-    padding: 8px;
-    border: 1px solid gray;
+    font-size: 40px;
+    border-radius: 100px;
+    padding: 0px 8px 8px 8px;
+    border: 3px solid dimgray;
     cursor: pointer;
 }
 

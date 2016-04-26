@@ -36,20 +36,26 @@ var getRandomArbitrary = function(min, max) {
 
 var makeRandomMove = function(gc, domSquares) {
     var moves = Object.keys(gc.notatedMoves);
-    if(moves.length == 0) {
-        debugger;
+    if(gc.isStalemate) {
+        alert('Stalemate, every body loses');
+        return;
+    }
+    if(gc.isRepetition) {
+        alert('Too many repeats, giving up');
+        return;
+    }
+    if(gc.isCheckmate) {
+        alert('Check mate!');
         return;
     }
     var index = getRandomArbitrary(0, moves.length);
     var move = moves[index];
 
     gc.move(move);
-    console.log(move);
     drawBoard(domSquares, gc.game.board.squares);
-    console.log(gc);
     
     // bad algorithm, but temporary
-    setTimeout(function() { result = makeRandomMove(gc, domSquares) }, 100);
+    setTimeout(function() { makeRandomMove(gc, domSquares); }, 100);
 };
 
 // create a game client
