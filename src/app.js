@@ -9,8 +9,8 @@ var init = function(){
             '7': ['pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn']
         },
         white: {
-            '2': ['rook', 'knight', 'bishop', 'king', 'queen', 'bishop', 'knight', 'rook'],
-            '1': ['pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn']
+            '1': ['rook', 'knight', 'bishop', 'king', 'queen', 'bishop', 'knight', 'rook'],
+            '2': ['pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn', 'pawn']
         }
     };
 
@@ -24,7 +24,7 @@ var init = function(){
         if (pieces.hasOwnProperty(color)) {
             for(var rowNumber in pieces[color]) {
                 if (pieces[color].hasOwnProperty(rowNumber)) {
-                    console.log('Row: ' + rowNumber)
+                    console.log('Row: ' + rowNumber);
                     var columnNumber = 0;
                     for(var piece in pieces[color][rowNumber]) {
                         if (pieces[color][rowNumber].hasOwnProperty(piece)) {
@@ -41,7 +41,7 @@ var init = function(){
             }
         }
     }
-}
+};
 
 $(function() {
     init();

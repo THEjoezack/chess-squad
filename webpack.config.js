@@ -11,8 +11,8 @@ module.exports = {
    module: {
       preLoaders: [
         {
-            test: /src\/*.js$/,
-            exclude: "node_modules",
+            test: /src\/.*\.js$/,
+            exclude: ["node_modules","dist"],
             loader: "jshint-loader"
         }
     ],
