@@ -17,6 +17,7 @@
     "bootstrap": "^3.3.6",
     "bootstrap-webpack": "0.0.5",
     "chess": "^0.2.7",
+    "chess-ai-kong": "^0.3.3",
     "css-loader": "^0.23.1",
     "exports-loader": "^0.6.3",
     "extract-text-webpack-plugin": "^1.0.1",
