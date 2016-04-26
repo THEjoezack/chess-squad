@@ -14,24 +14,21 @@ var init = function(){
         }
     };
 
-    function getHtml(color, type) {
-        return '<span href="#" data-toggle="tooltip" class="' + color + ' piece ' + type + '" title="' + color + ' ' + type + '"></span>';
-    }
-    
+    var pieceTemplate = require('./templates/piece.hbs');
     var maxRows = 8;
     var rows = $('.table.board').children('tbody').children('tr');
     for(var color in pieces) {
         if (pieces.hasOwnProperty(color)) {
             for(var rowNumber in pieces[color]) {
                 if (pieces[color].hasOwnProperty(rowNumber)) {
-                    console.log('Row: ' + rowNumber);
                     var columnNumber = 0;
                     for(var piece in pieces[color][rowNumber]) {
                         if (pieces[color][rowNumber].hasOwnProperty(piece)) {
                             var row = $($(rows)[maxRows - rowNumber])[0];
                             var column = $($(row).children('td')[columnNumber])[0];
+                            var type = pieces[color][rowNumber][piece];
+                            var html = pieceTemplate({color: color, type: type });
                             
-                            var html = getHtml(color, pieces[color][rowNumber][piece]);
                             $(column).html(html);
                             
                             columnNumber += 1;

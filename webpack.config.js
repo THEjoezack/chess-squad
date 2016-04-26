@@ -23,7 +23,8 @@ module.exports = {
       { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff', path: './dist' },
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream', path: './dist' },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file', path: './dist' },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml', path: './dist' }
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml', path: './dist' },
+      { test: /\.hbs$/, loader: "handlebars-loader" }
     ]
    },
    plugins: [
