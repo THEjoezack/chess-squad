@@ -28,3 +28,11 @@ Might have different game modes
 * Project the King
 * Project the Pawn
 * Elimination
+
+### Getting Started
+* npm install -g webpack
+* npm install -g webpack-dev-server
+* git clone https://github.com/THEjoezack/chess-squad.git
+* cd chess-squad
+* npm install
+* webpack ./entry.js bundle.js
