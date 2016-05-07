@@ -35,14 +35,13 @@ $(function() {
     var chess = require('chess');
     var gc = chess.create(),
         domSquares = getDomSquares(),
-        strategy = require('./chessAiStrategy'),
+        strategy = require('./strategies/chessAiStrategy'),
         scope = this;
 
-    gc.allMoves = []; // not crazy about this...
     strategy.initialize(gc);
     
     scope.move = function() {
-        gc = strategy.move();
+        var lastMove = strategy.move();
         
         if(gc.isStalemate) {
             alert('Stalemate, every body loses');
