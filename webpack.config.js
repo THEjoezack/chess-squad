@@ -28,13 +28,14 @@ module.exports = {
     ]
    },
    plugins: [
-      new HtmlWebpackPlugin({
-        title: 'Chess Squad',
-        template: './src/game.ejs'
-      }),
-      new CleanWebpackPlugin(['dist'], {
-        verbose: true, 
-        dry: false
+     // TODO handlebars!
+    new HtmlWebpackPlugin({
+      title: 'Chess Squad',
+      template: './src/templates/game.ejs'
+    }),
+    new CleanWebpackPlugin(['dist'], {
+      verbose: false, 
+      dry: false
     })
    ]
 };
