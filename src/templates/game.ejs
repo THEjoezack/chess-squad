@@ -4,9 +4,13 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <div id="site-status-message" class="alert alert-info hidden" role="alert">
+    <div id="site-status-message" class="alert alert-info hidden site-status" role="alert">
         <span class="status-message"></span>
     </div>
+    <div id="check-alert-message" class="alert alert-warning hidden site-status" role="alert">
+        <span class="status-message"></span>
+    </div>
+    <div class="site-status-holder"></div>
     <div class="container">
         <div class="site-container">
             <h1>Chess Squad!</h1>     

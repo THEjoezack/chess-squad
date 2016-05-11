@@ -6,6 +6,7 @@ var defaults = {
 };
 
 module.exports = {
+    name: "Chess AI",
     initialize: function(gameContext, userOptions) {
         var options = Object.assign(defaults, userOptions || []);
         this.ai = require('chess-ai-kong');

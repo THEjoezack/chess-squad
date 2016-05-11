@@ -9,6 +9,7 @@ Simple game that lets you create your own squad of chess pieces and battle it ou
 * npm start
 
 ### TODO:
+* Game ejs to hbs
 * Create user strategy
 * Allow reset
 * Allow undo

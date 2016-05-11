@@ -1,3 +1,14 @@
+/* Messaging */
+.site-status-holder {
+    height: 52px;
+}
+
+.site-status {
+    position: absolute;
+    width: 100%;
+}
+
+/* Board */
 .table.board {
     width: inherit;
 }
@@ -10,8 +21,8 @@
 
 .table.board td {
     text-align: center;
-    width: 80px;
-    height: 80px;
+    width: 75px;
+    height: 75px;
     border: 1px solid lightgray;
 }
 
@@ -21,7 +32,7 @@
 
 /* Pieces */
 .piece {
-    font-size: 40px;
+    font-size: 36px;
     border-radius: 100px;
     padding: 0px 8px 8px 8px;
     border: 3px solid dimgray;
