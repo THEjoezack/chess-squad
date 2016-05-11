@@ -1,6 +1,7 @@
 require('expose?$!expose?jQuery!jquery');
 
 var pieceTemplate = require('./templates/piece.hbs');
+var logEntry = require('./templates/logEntry.hbs');
 
 var getDomSquares = function() {
     var elements = [];
@@ -20,12 +21,34 @@ module.exports = {
         $('#site-status-message .status-message').html(message);
         $('#site-status-message').removeClass('hidden');
     },
-    showCheckAlert: function(checkPlayer) {
-        $('#check-alert-message .status-message').html(checkPlayer + " is in check!");
-        $('#check-alert-message').removeClass('hidden');
+    showCheckAlert: function(gc) {
+        if(gc.isCheck) {
+            $('#check-alert-message .status-message').html(gc.offPlayer.name + ' is in check!');
+            $('#check-alert-message').removeClass('hidden');
+            this.check = true;
+        } else if(this.check) {
+            $('#check-alert-message').addClass('hidden');
+            this.check = false;
+        }
     },
-    hideCheckAlert: function() {
-        $('#check-alert-message').addClass('hidden');
+    updateLog: function(gameContext) {
+        var status = '';
+        status = gameContext.isCheck ? 'check' : status;
+        status = gameContext.isStalemate ? 'stalemate' : status;
+        status = gameContext.isRepetition ? 'repetition' : status;
+        status = gameContext.isCheckmate ? 'checkmate' : status;
+        var warning = status === 'check' ? 'warning' : 'info';
+        var lastMove = gameContext.game.moveHistory[gameContext.game.moveHistory.length - 1];
+
+        var html = logEntry({
+            player: gameContext.currentPlayer.name,
+            color: gameContext.currentPlayer.color,
+            type: lastMove.piece.type, 
+            move: lastMove.algebraic,
+            status: status,
+            alertType: 'warning'
+        });
+        $('#game-log').append(html);
     },
     drawBoard : function(boardSquares) {
         var squareElements = getDomSquares();

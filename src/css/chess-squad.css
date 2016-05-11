@@ -43,6 +43,17 @@
     border: 3px solid orange;
 }
 
+.piece.tiny {
+    font-size: 12px;
+    border-radius: 100px;
+    padding: 0 2px 2px 2px;
+    border: 0;
+    cursor: inherit;
+}
+
+.piece.tiny {
+    border: 0px;
+}
 
 .black.piece {
     background-color: black;
