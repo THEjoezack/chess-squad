@@ -3,7 +3,7 @@ require('expose?$!expose?jQuery!jquery');
 var pieceTemplate = require('./templates/piece.hbs');
 var logEntry = require('./templates/logEntry.hbs');
 
-var getDomSquares = function() {
+var getSquaresElements = function() {
     var elements = [];
     var rows = $('.table.board').children('tbody').children('tr');
     for(var rowNumber = rows.length; rowNumber >= 0; rowNumber--) {
@@ -17,7 +17,20 @@ var getDomSquares = function() {
 };
 
 module.exports = {
-    showStatus: function(message) {
+    showStatus: function(gc) {
+        if(gc.isStalemate) {
+            var message = 'Stalemate, everybody loses';
+        }
+        else if(gc.isRepetition) {
+            var message = 'Too many repeats, giving up';
+        }
+        else if(gc.isCheckmate) {
+            var message = 'Checkmate! ' + gc.currentPlayer.name + ' wins.';
+        } else {
+            var message = 'Game over, but I don\'t know why'; // This should never happen
+        }
+        
+        $('#check-alert-message').addClass('hidden');
         $('#site-status-message .status-message').html(message);
         $('#site-status-message').removeClass('hidden');
     },
@@ -37,7 +50,7 @@ module.exports = {
         status = gameContext.isStalemate ? 'stalemate' : status;
         status = gameContext.isRepetition ? 'repetition' : status;
         status = gameContext.isCheckmate ? 'checkmate' : status;
-        var warning = status === 'check' ? 'warning' : 'info';
+        var alertType = status === 'check' ? 'warning' : 'info';
         var lastMove = gameContext.game.moveHistory[gameContext.game.moveHistory.length - 1];
 
         var html = logEntry({
@@ -46,18 +59,19 @@ module.exports = {
             type: lastMove.piece.type, 
             move: lastMove.algebraic,
             status: status,
-            alertType: 'warning'
+            alertType: alertType
         });
         $('#game-log').append(html);
     },
     drawBoard : function(boardSquares) {
-        var squareElements = getDomSquares();
+        var squareElements = this.squareElements || getSquaresElements();
+        this.squareElements = squareElements;
         var pieceMap = {};
         for(var i = 0; i < squareElements.length; i++) {
             var model = boardSquares[i];
             var piece = model.piece;
             if(piece) {
-                var html = pieceTemplate({ color: model.piece.side.name, type: model.piece.type });
+                var html = pieceTemplate({ color: piece.side.name, type: piece.type });
                 squareElements[i].html(html);
             } else {
                 squareElements[i].html('&nbsp;');

@@ -5,6 +5,6 @@ module.exports = {
         this.gameContext = gameContext;
     },
     move: function() {
-
+        // block till user input
     }
 }

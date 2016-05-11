@@ -18,11 +18,19 @@ module.exports = {
         this.gameContext.game.moveHistory.forEach(function(m) {
             allMoves.push(m.algebraic)
         });
-        var myMove = this.ai.play(allMoves);
         
         // sometimes the AI makes moves that the engine doesn't consider legal?
-        var sanitizedMove = myMove.replace('+','').replace('=',''); // todo fix this!
+        try {
+            var myMove = this.ai.play(allMoves);
+            var sanitizedMove = myMove.replace('+','').replace('=',''); // todo fix this!
+        } catch(e) {
+            console.log('Illegal move was made by previous player? ' + e);
+            console.log(allMoves);
+            sanitizedMove = '';
+        }
+
         if(!this.gameContext.notatedMoves[sanitizedMove]) {
+            console.log('Illegal move was attempted by AI? ' + myMove);
             var legalMoves = Object.keys(this.gameContext.notatedMoves);
             var random = require('random-number-in-range')(0, legalMoves.length - 1);
             myMove = legalMoves[random];

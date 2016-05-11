@@ -7,12 +7,12 @@ var randomStrategy = require('./strategies/randomStrategy');
 var getPlayers = function(gc) {
     var players = [
         {
-            name: 'AI Player',
+            name: 'Player #1',
             color: 'white',
             strategy: aiStrategy
         },
         {
-            name: 'Random Player',
+            name: 'Player #2',
             color: 'black',
             strategy: randomStrategy
         }
@@ -22,6 +22,10 @@ var getPlayers = function(gc) {
         players[i].strategy.initialize(gc);
     }
     return players;
+}
+
+var isGameOver = function(gc) {
+    return gc.isStalemate || gc.isRepetition || gc.isCheckmate;
 }
 
 $(function() {
@@ -38,29 +42,17 @@ $(function() {
         gc.offPlayer = gc.players[(turn + 1) % 2];
         gc.currentPlayer.strategy.move();
         
-        if(gc.isStalemate) {
-            game.hideCheckAlert();
-            game.showStatus('Stalemate, everybody loses');
-            return;
-        }
-        
-        if(gc.isRepetition) {
-            game.hideCheckAlert();
-            game.showStatus('Too many repeats, giving up');
-            return;
-        }
-        
-        if(gc.isCheckmate) {
-            game.hideCheckAlert();
-            game.showStatus('Checkmate! ' + gc.currentPlayer.name + ' wins.');
-            return;
-        }
-        
         game.updateLog(gc);
         game.drawBoard(gc.game.board.squares);
         game.showCheckAlert(gc);
         
         turn++;
+        
+        if(isGameOver(gc)) {
+            game.showStatus(gc);
+            return;
+        }
+        
         setTimeout(scope.move, 5);
     };
     scope.move();
