@@ -7,13 +7,13 @@ var defaults = {
 
 module.exports = {
     name: "Chess AI",
-    initialize: function(gameContext, userOptions) {
+    initialize: function(gameContext, gameInterface, userOptions) {
         var options = Object.assign(defaults, userOptions || []);
         this.ai = require('chess-ai-kong');
         this.ai.setOptions(options);
         this.gameContext = gameContext;
     },
-    move: function() {
+    move: function(after) {
         var allMoves = [];
         this.gameContext.game.moveHistory.forEach(function(m) {
             allMoves.push(m.algebraic)
@@ -38,6 +38,7 @@ module.exports = {
         }
 
         this.gameContext.move(sanitizedMove);
-        return myMove;
+        
+        setTimeout(after, 50);
     }
 }

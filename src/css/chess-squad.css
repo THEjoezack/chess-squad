@@ -43,6 +43,10 @@
     background-color: lightblue;
 }
 
+.table.board .valid-move {
+    border: 3px dashed orange;
+}
+
 /* Pieces */
 .piece {
     font-size: 36px;
@@ -52,8 +56,8 @@
     cursor: pointer;
 }
 
-.piece:hover {
-    border: 3px solid orange;
+.selected > .piece {
+    border: 3px dashed orange;
 }
 
 .piece.tiny {
