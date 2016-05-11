@@ -2,7 +2,7 @@ var defaults = {
     depth: 3,
     monitor: false,
     strategy: 'basic',
-    timeout: 100
+    timeout: 50
 };
 
 module.exports = {

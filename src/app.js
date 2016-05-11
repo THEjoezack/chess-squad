@@ -30,6 +30,11 @@ var drawBoard = function(squareElements, boardSquares) {
     }
 };
 
+var showSiteStatus = function(message) {
+    $('#site-status-message .status-message').html(message);
+    $('#site-status-message').removeClass('hidden');
+}
+
 // create a game client
 $(function() {
     var chess = require('chess');
@@ -44,22 +49,22 @@ $(function() {
         var lastMove = strategy.move();
         
         if(gc.isStalemate) {
-            alert('Stalemate, every body loses');
+            showSiteStatus('Stalemate, every body loses');
             return;
         }
         
         if(gc.isRepetition) {
-            alert('Too many repeats, giving up');
+            showSiteStatus('Too many repeats, giving up');
             return;
         }
         
         if(gc.isCheckmate) {
-            alert('Check mate!');
+            showSiteStatus('Check mate!');
             return;
         }
         
         drawBoard(domSquares, gc.game.board.squares);
-        setTimeout(scope.move, 200);
+        setTimeout(scope.move, 50);
     };
     scope.move();
 });

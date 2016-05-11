@@ -9,11 +9,16 @@ Simple game that lets you create your own squad of chess pieces and battle it ou
 * npm start
 
 ### TODO:
-* How to decide which move to make?
+* Create user strategy
+* Allow reset
+* Allow undo
+* Show algebraic moves as game progresses
+* Menu screen to setup game
 * Allow custom board setup
-* Screens for creating squads
-* Ability to save squads
-* Compete against other people
+* Squads
+  * Screens for creating squads
+  * Ability to save
+  * Compete against other people
 
 ### Far future
 * Different game modes
