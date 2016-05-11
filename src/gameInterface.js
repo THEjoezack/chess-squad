@@ -60,7 +60,7 @@ module.exports = {
                 var html = pieceTemplate({ color: model.piece.side.name, type: model.piece.type });
                 squareElements[i].html(html);
             } else {
-                squareElements[i].html('');
+                squareElements[i].html('&nbsp;');
             }
         }
     }

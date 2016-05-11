@@ -8,6 +8,19 @@
     width: 100%;
 }
 
+/* Log */
+#game-log-container {
+    height: 600px;
+    width: 600px;
+    margin-top: 35px;
+    margin-left: 25px;
+    overflow: auto;
+}
+
+#game-log-container .list-group-item {
+    background-color: inherit;
+}
+
 /* Board */
 .table.board {
     width: inherit;
