@@ -12,10 +12,13 @@ module.exports = {
         this.ai = require('chess-ai-kong');
         this.ai.setOptions(options);
         this.gameContext = gameContext;
-        this.gameContext.allMoves = [];
     },
     move: function() {
-        var myMove = this.ai.play(this.gameContext.allMoves);
+        var allMoves = [];
+        this.gameContext.game.moveHistory.forEach(function(m) {
+            allMoves.push(m.algebraic)
+        });
+        var myMove = this.ai.play(allMoves);
         
         // sometimes the AI makes moves that the engine doesn't consider legal?
         var sanitizedMove = myMove.replace('+','').replace('=',''); // todo fix this!
@@ -26,7 +29,6 @@ module.exports = {
             sanitizedMove = myMove;
         }
 
-        this.gameContext.allMoves.push(myMove);
         this.gameContext.move(sanitizedMove);
         return myMove;
     }

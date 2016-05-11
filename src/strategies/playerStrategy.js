@@ -5,10 +5,6 @@ module.exports = {
         this.gameContext = gameContext;
     },
     move: function() {
-        var moves = Object.keys(this.gameContext.notatedMoves);
-        var index = require('random-number-in-range')(0, moves.length - 1);
-        var myMove = moves[index];
-        this.gameContext.move(myMove);
-        return myMove;
+
     }
 }
