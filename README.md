@@ -9,12 +9,12 @@ Simple game that lets you create your own squad of chess pieces and battle it ou
 * npm start
 
 ### TODO:
+* Player castling!
+* Menu screen to setup game
 * Game ejs to hbs
 * Create user strategy
 * Allow reset
 * Allow undo
-* Show algebraic moves as game progresses
-* Menu screen to setup game
 * Allow custom board setup
 * Squads
   * Screens for creating squads

@@ -4,7 +4,7 @@
   "description": "fun variant of chess that lets you build your own team to compete!",
   "main": "index.html",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dev-server -d --hot --inline"
   },
   "repository": "github:https://github.com/THEjoezack/chess-squad.git",
   "keywords": [

@@ -11,12 +11,12 @@ var getPlayers = function(gc, gameInterface) {
         {
             name: 'Player #1',
             color: 'white',
-            strategy: playerStrategy
+            strategy: aiStrategy
         },
         {
             name: 'Player #2',
             color: 'black',
-            strategy: randomStrategy
+            strategy: playerStrategy
         }
     ];
     

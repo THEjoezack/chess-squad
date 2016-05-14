@@ -6,7 +6,8 @@ module.exports = {
   //watch: true,
   output: {
       path: './dist',
-      filename: 'bundle.js'
+      filename: 'bundle.js',
+      sourceMapFilename: '[file].map'
    },
    module: {
       preLoaders: [
