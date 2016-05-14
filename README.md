@@ -9,10 +9,9 @@ Simple game that lets you create your own squad of chess pieces and battle it ou
 * npm start
 
 ### TODO:
-* Player castling!
 * Menu screen to setup game
+* UX Enhancements
 * Game ejs to hbs
-* Create user strategy
 * Allow reset
 * Allow undo
 * Allow custom board setup
