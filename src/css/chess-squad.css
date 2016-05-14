@@ -44,7 +44,7 @@
 }
 
 .table.board .valid-move {
-    border: 3px dashed orange;
+    border: 2px dashed orange;
 }
 
 /* Pieces */
@@ -52,12 +52,12 @@
     font-size: 36px;
     border-radius: 100px;
     padding: 0px 8px 8px 8px;
-    border: 3px solid dimgray;
+    border: 2px solid dimgray;
     cursor: pointer;
 }
 
 .selected > .piece {
-    border: 3px dashed orange;
+    border: 2px dashed orange;
 }
 
 .piece.tiny {

@@ -11,7 +11,7 @@ var getPlayers = function(gc, gameInterface) {
         {
             name: 'Player #1',
             color: 'white',
-            strategy: aiStrategy
+            strategy: playerStrategy
         },
         {
             name: 'Player #2',
