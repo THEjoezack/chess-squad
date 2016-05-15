@@ -11,12 +11,12 @@ var getPlayers = function(gc, gameInterface) {
         {
             name: 'Player #1',
             color: 'white',
-            strategy: playerStrategy
+            strategy: aiStrategy
         },
         {
             name: 'Player #2',
             color: 'black',
-            strategy: playerStrategy
+            strategy: aiStrategy
         }
     ];
     
@@ -34,8 +34,10 @@ $(function() {
     var chess = require('chess');
     var gc = chess.create(),
         scope = this,
-        ui = require('./gameInterface');
+        ui = require('./gameInterface'),
+        log = require('./gameLog');
     ui.initialize();
+    log.initialize('.game-log');
     
     // super code smell - why do the players know about ui?
     gc.players = getPlayers(gc,ui);
@@ -47,7 +49,7 @@ $(function() {
         gc.currentPlayer = gc.players[turn % 2];
         gc.offPlayer = gc.players[(turn + 1) % 2];
         gc.currentPlayer.strategy.move(function() {
-            ui.updateLog(gc);
+            log.updateLog(gc);
             ui.drawBoard(gc.game.board.squares);
             ui.showCheckAlert(gc);
             

@@ -24,7 +24,8 @@ module.exports = {
             var myMove = this.ai.play(allMoves);
             var sanitizedMove = myMove.replace('+','').replace('=',''); // todo fix this!
         } catch(e) {
-            console.log('Illegal move was made by previous player? ' + e);
+            console.log('Illegal move was made by previous player? ' + myMove);
+            console.log(e);
             console.log(allMoves);
             sanitizedMove = '';
         }
@@ -39,6 +40,6 @@ module.exports = {
 
         this.gameContext.move(sanitizedMove);
         
-        setTimeout(after, 50);
+        setTimeout(after, 100);
     }
 }

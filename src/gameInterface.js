@@ -1,7 +1,6 @@
 require('expose?$!expose?jQuery!jquery');
 
 var pieceTemplate = require('./templates/piece.hbs');
-var logEntry = require('./templates/logEntry.hbs');
 
 module.exports = {
     initialize: function() {
@@ -49,25 +48,6 @@ module.exports = {
             $('#check-alert-message').addClass('hidden');
             this.check = false;
         }
-    },
-    updateLog: function(gameContext) {
-        var status = '';
-        status = gameContext.isCheck ? 'check' : status;
-        status = gameContext.isStalemate ? 'stalemate' : status;
-        status = gameContext.isRepetition ? 'repetition' : status;
-        status = gameContext.isCheckmate ? 'checkmate' : status;
-        var alertType = status === 'check' ? 'warning' : 'info';
-        var lastMove = gameContext.game.moveHistory[gameContext.game.moveHistory.length - 1];
-
-        var html = logEntry({
-            player: gameContext.currentPlayer.name,
-            color: gameContext.currentPlayer.color,
-            type: lastMove.piece.type, 
-            move: lastMove.algebraic,
-            status: status,
-            alertType: alertType
-        });
-        $('#game-log').append(html);
     },
     drawBoard : function(boardSquares) {
         var pieceMap = {};

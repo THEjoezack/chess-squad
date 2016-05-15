@@ -8,20 +8,49 @@
     width: 100%;
 }
 
-/* Log */
-#game-log-container {
-    height: 600px;
-    width: 600px;
-    margin-top: 35px;
-    margin-left: 25px;
-    overflow: auto;
+/* Panels */
+.grouping-panel { 
+    border: 1px solid lightgray;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-#game-log-container .list-group-item {
-    background-color: inherit;
+.grouping-panel > .title {
+    color: lightgray;
+    font-weight: bold;
+    overflow: scroll;
+}
+
+.game-log-container {
+    height: 200px;
+    overflow: scroll;
+    width: 100%;
+}
+
+.game-log-container ul {
+    padding: 0px;
+}
+
+.game-log-container .list-group-item {
+    border: 0px;
+}
+
+.game-container {
+    width: 450px;
+    float: left;
+    margin: 10px;
+}
+
+.game-info-container {
+    width: 450px;
+    height: 450px;
+    float: left;
+    margin: 10px;
+    margin-top: 45px;
 }
 
 /* Board */
+
 .table.board {
     width: inherit;
 }
@@ -34,8 +63,8 @@
 
 .table.board td {
     text-align: center;
-    width: 75px;
-    height: 75px;
+    width: 50px;
+    height: 50px;
     border: 1px solid lightgray;
 }
 
@@ -49,9 +78,9 @@
 
 /* Pieces */
 .piece {
-    font-size: 36px;
+    font-size: 18px;
     border-radius: 100px;
-    padding: 0px 8px 8px 8px;
+    padding: 0px 4px 4px 4px;
     border: 2px solid dimgray;
     cursor: pointer;
 }
