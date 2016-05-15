@@ -19,8 +19,19 @@ var makeAlgebraicMove = function(source, destination, scope, next) {
         modal.modal('show');
         modal.find('.btn-primary').on('click', function() {
             var selectedValue = modal.find('input[type=radio]:checked')[0].value;
-            result = result.slice(0, result.length - 1) + selectedValue;
+            var pieces = result.split('');
+            // Need to swap out the last piece token 
+            for(var i = result.length - 1; i > 0; i--) {
+                if(pieces[i].match(/[A-Z]/i)) {
+                    pieces[i] = selectedValue;
+                    break;
+                }
+            }
+            result = pieces.join('');
             modal.modal('hide');
+            if(!scope.gameContext.notatedMoves[result]) {
+                throw 'Invalid player move: ' + result;
+            }
             next(result);
         });
     } else {
