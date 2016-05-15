@@ -23,7 +23,6 @@ module.exports = {
             alertType: alertType
         });
         
-        
         this.el.append(html);
         this.container.animate({
             scrollTop: this.container.prop('scrollHeight')

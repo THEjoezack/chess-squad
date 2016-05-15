@@ -34,14 +34,14 @@ $(function() {
     var chess = require('chess');
     var gc = chess.create(),
         scope = this,
-        ui = require('./gameInterface'),
-        log = require('./gameLog');
+        ui = require('./game/game'),
+        log = require('./game/log'),
+        status = require('./game/status');
     ui.initialize();
     log.initialize('.game-log');
     
     // super code smell - why do the players know about ui?
     gc.players = getPlayers(gc,ui);
-    
     
     var turn = 0;
     var check = false;
@@ -51,12 +51,12 @@ $(function() {
         gc.currentPlayer.strategy.move(function() {
             log.updateLog(gc);
             ui.drawBoard(gc.game.board.squares);
-            ui.showCheckAlert(gc);
+            status.showCheckAlert(gc);
             
             turn++;
             
             if(isGameOver(gc)) {
-                game.showStatus(gc);
+                status.showStatus(gc);
                 return;
             }
             

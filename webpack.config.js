@@ -7,7 +7,7 @@ module.exports = {
   output: {
       path: './dist',
       filename: 'bundle.js',
-      sourceMapFilename: '[file].map'
+        sourceMapFilename: '[file].map'
    },
    module: {
       preLoaders: [
@@ -32,7 +32,7 @@ module.exports = {
      // TODO handlebars!
     new HtmlWebpackPlugin({
       title: 'Chess Squad',
-      template: './src/templates/game.ejs'
+      template: './src/game/templates/game.ejs'
     }),
     new CleanWebpackPlugin(['dist'], {
       verbose: false, 

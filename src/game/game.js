@@ -22,33 +22,6 @@ module.exports = {
         this.squareElements = elements;
         this.squareMap = map;
     },
-    showStatus: function(gc) {
-        if(gc.isStalemate) {
-            var message = 'Stalemate, everybody loses';
-        }
-        else if(gc.isRepetition) {
-            var message = 'Too many repeats, giving up';
-        }
-        else if(gc.isCheckmate) {
-            var message = 'Checkmate! ' + gc.currentPlayer.name + ' wins.';
-        } else {
-            var message = 'Game over, but I don\'t know why'; // This should never happen
-        }
-        
-        $('#check-alert-message').addClass('hidden');
-        $('#site-status-message .status-message').html(message);
-        $('#site-status-message').removeClass('hidden');
-    },
-    showCheckAlert: function(gc) {
-        if(gc.isCheck) {
-            $('#check-alert-message .status-message').html(gc.offPlayer.name + ' is in check!');
-            $('#check-alert-message').removeClass('hidden');
-            this.check = true;
-        } else if(this.check) {
-            $('#check-alert-message').addClass('hidden');
-            this.check = false;
-        }
-    },
     drawBoard : function(boardSquares) {
         var pieceMap = {};
         for(var i = 0; i < this.squareElements.length; i++) {
@@ -66,4 +39,3 @@ module.exports = {
         return this.squareMap[alphaNumericSpace];
     }
 };
-
