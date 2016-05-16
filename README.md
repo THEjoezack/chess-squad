@@ -9,7 +9,8 @@ Simple game that lets you create your own squad of chess pieces and battle it ou
 * npm start
 
 ### TODO:
-* Menu screen to setup game
+* Show current player's turn
+* Move status message to info pane
 * UX Enhancements
 * Game ejs to hbs
 * Allow reset

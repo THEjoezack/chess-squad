@@ -17,6 +17,10 @@ module.exports = {
         $('#site-status-message .status-message').html(message);
         $('#site-status-message').removeClass('hidden');
     },
+    hideStatus: function() {
+        $('#check-alert-message').addClass('hidden');
+        $('#site-status-message').addClass('hidden');
+    },
     showCheckAlert: function(gc) {
         // TODO ID!
         if(gc.isCheck) {

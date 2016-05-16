@@ -21,6 +21,7 @@ module.exports = {
         }
         this.squareElements = elements;
         this.squareMap = map;
+        return this;
     },
     drawBoard : function(boardSquares) {
         var pieceMap = {};

@@ -2,46 +2,22 @@ require('expose?$!expose?jQuery!jquery');
 require('bootstrap-webpack');
 require('./css/chess-squad.css');
 
-var aiStrategy = require('./strategies/chessAiStrategy');
-var randomStrategy = require('./strategies/randomStrategy');
-var playerStrategy = require('./strategies/playerStrategy');
-
-var getPlayers = function(gc, gameInterface) {
-    var players = [
-        {
-            name: 'Player #1',
-            color: 'white',
-            strategy: aiStrategy
-        },
-        {
-            name: 'Player #2',
-            color: 'black',
-            strategy: aiStrategy
-        }
-    ];
-    
-    for(i in players) {
-        players[i].strategy.initialize(gc, gameInterface);
-    }
-    return players;
-}
-
 var isGameOver = function(gc) {
     return gc.isStalemate || gc.isRepetition || gc.isCheckmate;
 }
 
-$(function() {
-    var chess = require('chess');
-    var gc = chess.create(),
+var startGame = function(playerType1, playerType2) {
+    var gc = require('chess').create(),
         scope = this,
-        ui = require('./game/game'),
-        log = require('./game/log'),
-        status = require('./game/status');
-    ui.initialize();
-    log.initialize('.game-log');
+        ui = require('./game/game').initialize(),
+        log = require('./game/log').initialize('.game-log'),
+        status = require('./game/status'),
+        playerManager = require('./game/playerManager');
     
+    log.clear();
+    status.hideStatus();
     // super code smell - why do the players know about ui?
-    gc.players = getPlayers(gc,ui);
+    gc.players = playerManager.getPlayers(playerType1, playerType2, gc, ui);
     
     var turn = 0;
     var check = false;
@@ -57,6 +33,7 @@ $(function() {
             
             if(isGameOver(gc)) {
                 status.showStatus(gc);
+                $('#game-setup').modal('show');
                 return;
             }
             
@@ -65,4 +42,13 @@ $(function() {
     };
     ui.drawBoard(gc.game.board.squares);
     scope.move();
+};
+
+$(function() {
+    $('#game-setup').find('.btn.btn-primary').on('click', function() {
+        var fields = $('#game-setup select');
+        startGame(fields[0].value, fields[1].value);
+        $('#game-setup').modal('hide');
+    });
+    $('#game-setup').modal('show');
 });

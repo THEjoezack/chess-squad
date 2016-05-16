@@ -4,6 +4,7 @@ module.exports = {
     initialize: function(selector) {
         this.el = $(selector);
         this.container = this.el.parent();
+        return this;
     },
     updateLog: function(gameContext) {
         var status = '';
@@ -27,5 +28,8 @@ module.exports = {
         this.container.animate({
             scrollTop: this.container.prop('scrollHeight')
         }, 'fast');
+    },
+    clear: function() {
+        this.el.empty();
     }
 };

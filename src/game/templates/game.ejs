@@ -168,5 +168,41 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="game-setup" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Start a new game</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">White Player</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option value="human" selected="true">Human</option>
+                                    <option value="ai">AI</option>
+                                    <option value="random">Random</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Black Player</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option value="human" selected="true">Human</option>
+                                    <option value="ai" selected="true">AI</option>
+                                    <option value="random">Random</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Let's go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

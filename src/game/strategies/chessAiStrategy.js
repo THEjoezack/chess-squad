@@ -40,6 +40,6 @@ module.exports = {
 
         this.gameContext.move(sanitizedMove);
         
-        setTimeout(after, 100);
+        setTimeout(after, 250);
     }
 }
