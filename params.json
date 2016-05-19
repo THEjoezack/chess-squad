@@ -1,0 +1,6 @@
+{
+  "name": "Chess-squad",
+  "tagline": "",
+  "body": "Simple game that lets you create your own squad of chess pieces and battle it out against other custom teams!\r\n\r\nTODO:\r\n* Basic project setup\r\n * Testing\r\n * Browserify\r\n * Linting\r\n* Allow for \"hot seat\" play\r\n * Draggable pieces\r\n* Basic validation for various types of pieces (no images yet)\r\n * Can't move to spot same as own piece\r\n * Can't move if it places the king in check\r\n* Define conditions for winning / losing\r\n* Screens for creating squads, choosing opponent\r\n* Zany moves like castling, and 2 pawn move on first turn\r\n\r\n\r\n---------------------------------\r\n| P | P | P | P | P | P | P | P |\r\n---------------------------------\r\n| R | K | B | K | Q | B | K | R |\r\n---------------------------------\r\n\r\nConfigurable weights\r\nAbility to save \"squads\" and compete against other people\r\n\r\nMight have different game modes\r\n* Project the King\r\n* Project the Pawn\r\n* Elimination\r\n\r\n### Getting Started\r\n* npm install -g webpack\r\n* npm install -g webpack-dev-server\r\n* git clone https://github.com/THEjoezack/chess-squad.git\r\n* cd chess-squad\r\n* npm install\r\n* webpack ./entry.js bundle.js",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
