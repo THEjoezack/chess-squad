@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Chess Squad</title>
+</head>
+<body>
+    <div id="site-status-message" class="alert alert-info hidden site-status" role="alert">
+        <span class="status-message"></span>
+    </div>
+    <div id="check-alert-message" class="alert alert-warning hidden site-status" role="alert">
+        <span class="status-message"></span>
+    </div>
+    <div class="site-status-holder"></div>
+    <div class="container">
+        <div class="site-container">
+            <h1>Chess!</h1>
+            <div class="game-container">     
+                <table class="table board">
+                <thead>
+                    <tr>
+                    <th scope="row"></th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    <th>G</th>
+                    <th>H</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">8</th>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">7</th>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">6</th>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">5</th>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">4</th>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    </tr>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    <td class="alt"></td>
+                    <td></td>
+                    </tr>
+                </tbody>
+                </table>
+                </tbody>
+                </table>
+            </div>
+            <div class="game-info-container">
+                <div class="grouping-panel">
+                    <p class="title">Game Log</p>
+                    <div class="game-log-container">
+                        <ul class="game-log" class="list-group"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="pawn-promotion" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pawn Promotion</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Great job on the promotion! What would you like to be?</p>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="promotion-piece" value="Q"> Queen
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="promotion-piece" value="N"> Knight
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="promotion-piece" value="B"> Bishop
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="promotion-piece" value="R"> Rook
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Promote</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="game-setup" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Start a new game</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">White Player</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option value="human" selected="true">Human</option>
+                                    <option value="ai">AI</option>
+                                    <option value="random">Random</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Black Player</label>
+                            <div class="col-sm-9">
+                                <select class="form-control">
+                                    <option value="human" selected="true">Human</option>
+                                    <option value="ai" selected="true">AI</option>
+                                    <option value="random">Random</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Let's go!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="bundle.js"></script></body>
+</html>
