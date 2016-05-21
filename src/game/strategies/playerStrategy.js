@@ -59,6 +59,7 @@ var addMoveablePieceHandlers = function(validMoves, scope) {
                     makeAlgebraicMove(m.src, square, scope, function(algebraicMove) {
                         clearAvailableMoves(allSquares);
                         allSquares.off('click');
+                        scope.gameContext.allMoves.push(algebraicMove);
                         scope.gameContext.move(algebraicMove);
                         setTimeout(scope.after, 50); // TODO Ew!                        
                     });

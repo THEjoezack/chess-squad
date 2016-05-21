@@ -1,5 +1,7 @@
 Simple game that lets you create your own squad of chess pieces and battle it out against other custom squads!
 
+Check it out here: http://thejoezack.github.io/chess-squad/dist/
+
 ### Getting Started
 * npm install -g webpack
 * npm install -g webpack-dev-server
