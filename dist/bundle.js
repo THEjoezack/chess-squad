@@ -60,8 +60,14 @@
 	        status = __webpack_require__(155),
 	        playerManager = __webpack_require__(156);
 	    
+	    // This is annoying, there are sublte differences in how
+	    // the various strategies create their algebraic moves.
+	    // Doing this makes things much smoother since the strategies
+	    // recieves the exact move they put in.
+	    gc.allMoves = [];
 	    log.clear();
 	    status.hideStatus();
+	    
 	    // super code smell - why do the players know about ui?
 	    gc.players = playerManager.getPlayers(playerType1, playerType2, gc, ui);
 	    
@@ -20373,19 +20379,14 @@
 	        this.gameContext = gameContext;
 	    },
 	    move: function(after) {
-	        var allMoves = [];
-	        this.gameContext.game.moveHistory.forEach(function(m) {
-	            allMoves.push(m.algebraic)
-	        });
-	        
 	        // sometimes the AI makes moves that the engine doesn't consider legal?
 	        try {
-	            var myMove = this.ai.play(allMoves);
+	            var myMove = this.ai.play(this.gameContext.allMoves);
 	            var sanitizedMove = myMove.replace('+','').replace('=',''); // todo fix this!
 	        } catch(e) {
 	            console.log('Illegal move was made by previous player? ' + myMove);
 	            console.log(e);
-	            console.log(allMoves);
+	            console.log(this.gameContext.allMoves);
 	            sanitizedMove = '';
 	        }
 
@@ -20396,7 +20397,7 @@
 	            myMove = legalMoves[random];
 	            sanitizedMove = myMove;
 	        }
-
+	        this.gameContext.allMoves.push(myMove);
 	        this.gameContext.move(sanitizedMove);
 	        
 	        setTimeout(after, 250);
@@ -25286,6 +25287,7 @@
 	        var moves = Object.keys(this.gameContext.notatedMoves);
 	        var index = __webpack_require__(195)(0, moves.length - 1);
 	        var myMove = moves[index];
+	        this.gameContext.allMoves.push(myMove);
 	        this.gameContext.move(myMove);
 	        setTimeout(after, 50);
 	    }
@@ -25356,6 +25358,7 @@
 	                    makeAlgebraicMove(m.src, square, scope, function(algebraicMove) {
 	                        clearAvailableMoves(allSquares);
 	                        allSquares.off('click');
+	                        scope.gameContext.allMoves.push(algebraicMove);
 	                        scope.gameContext.move(algebraicMove);
 	                        setTimeout(scope.after, 50); // TODO Ew!                        
 	                    });
