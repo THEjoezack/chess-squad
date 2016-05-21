@@ -8,6 +8,7 @@ module.exports = {
         var moves = Object.keys(this.gameContext.notatedMoves);
         var index = require('random-number-in-range')(0, moves.length - 1);
         var myMove = moves[index];
+        this.gameContext.allMoves.push(myMove);
         this.gameContext.move(myMove);
         setTimeout(after, 50);
     }

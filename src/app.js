@@ -14,8 +14,14 @@ var startGame = function(playerType1, playerType2) {
         status = require('./game/status'),
         playerManager = require('./game/playerManager');
     
+    // This is annoying, there are sublte differences in how
+    // the various strategies create their algebraic moves.
+    // Doing this makes things much smoother since the strategies
+    // recieves the exact move they put in.
+    gc.allMoves = [];
     log.clear();
     status.hideStatus();
+    
     // super code smell - why do the players know about ui?
     gc.players = playerManager.getPlayers(playerType1, playerType2, gc, ui);
     
