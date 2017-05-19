@@ -18,12 +18,11 @@
 .grouping-panel > .title {
     color: lightgray;
     font-weight: bold;
-    overflow: scroll;
 }
 
 .game-log-container {
     height: 200px;
-    overflow: scroll;
+    overflow-y: auto;
     width: 100%;
 }
 
@@ -42,10 +41,10 @@
 }
 
 .game-info-container {
-    width: 450px;
+    width: 400px;
     height: 450px;
     float: left;
-    margin: 10px;
+    margin: 10px 60px 10px 60px;
     margin-top: 45px;
 }
 

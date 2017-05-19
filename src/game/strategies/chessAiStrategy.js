@@ -19,6 +19,7 @@ module.exports = {
             var myMove = this.ai.play(this.gameContext.allMoves);
             var sanitizedMove = myMove.replace('+','').replace('=',''); // todo fix this!
         } catch(e) {
+            debugger;
             console.log('Illegal move was made by previous player? ' + myMove);
             console.log(e);
             console.log(this.gameContext.allMoves);
